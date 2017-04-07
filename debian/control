@@ -8,6 +8,6 @@ Homepage: http://dev.holusion.net/gitlist/renderer
 Vcs-Git: git@dev.holusion.net:renderer
 
 Package: carp
-Depends:
+Depends: nodejs (>=4.0.0)
 Architecture: any
 Description: Cloud Render system for blender projects

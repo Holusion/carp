@@ -1,0 +1,8 @@
+[Unit]
+Description=log query tool for pixel.holusion.com
+
+[Service]
+ExecStart=/usr/bin/carp
+
+[Install]
+WantedBy=multi-user.target

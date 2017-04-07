@@ -1,0 +1,13 @@
+Source: carp
+Section: extras
+Priority: extra
+Maintainer: Sebastien Dumetz <s.dumetz@holusion.com>
+Build-Depends: debhelper (>= 8.0.0), dh-systemd (>=1.18~bpo70+1)
+Standards-Version: 3.9.6
+Homepage: http://dev.holusion.net/gitlist/renderer
+Vcs-Git: git@dev.holusion.net:renderer
+
+Package: carp
+Depends:
+Architecture: any
+Description: Cloud Render system for blender projects

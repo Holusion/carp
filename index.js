@@ -79,7 +79,7 @@ function count(scope, media, callback){
   const q = {
     query: {
       query_string: {
-        query: `request: /playlist/${scope}/${media}.mp4 AND (response: 200 OR (response:206  AND offset: 0) OR response: 304)`,
+        query: `request: "/playlist/${encodeURIComponent(scope)}/${encodeURIComponent(media)}.mp4" AND (response: 200 OR (response:206  AND offset: 0) OR response: 304)`,
         "analyze_wildcard": true
       }
     }
@@ -92,16 +92,12 @@ function count(scope, media, callback){
   });
 }
 const app = express();
-countAll(function(err,res){
-  if(err != null){
-    return console.error(err);
-  }
-  console.log("Total hits : ",res);
-});
 app.get("/",function(req, res){
   countAll(function(err,count){
     if( err != null ){
-      return res.status(500).send(err);
+      return res.status(err.status||500).send(
+        (err.root_cause)?JSON.stringify(err.root_cause[0]):err
+      );
     }
     res.set("Content-Type","text/plain");
     res.send(count.toString());
@@ -109,8 +105,10 @@ app.get("/",function(req, res){
 });
 app.get("/:scope/:media",function(req,res){
   count(req.params.scope,req.params.media,function(err,count){
-    if( err != null ){
-      return res.status(500).send(err);
+    if(err){
+      return res.status(err.status||500).send(
+        (err.root_cause)?JSON.stringify(err.root_cause[0]):err
+      );
     }
     res.set("Content-Type","text/plain");
     res.send(count.toString());

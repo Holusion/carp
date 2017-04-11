@@ -91,7 +91,15 @@ function count(scope, media, callback){
     return callback(null,res.hits.total);
   });
 }
+function enableCORS(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://pixel.holusion.com");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+};
+
+// BOOTSTRAP //
 const app = express();
+app.use(enableCORS);
 app.get("/",function(req, res){
   countAll(function(err,count){
     if( err != null ){

@@ -1,3 +1,9 @@
+carp (0.0.2) stable; urgency=medium
+
+  * Add a route to handle batch count requests
+
+ -- Sebastien Dumetz <s.dumetz@holusion.com>  Tue, 11 Apr 2017 17:22:22 +0200
+
 carp (0.0.1) stable; urgency=medium
 
   * Initial release. 

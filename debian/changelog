@@ -1,3 +1,10 @@
+carp (0.0.3) stable; urgency=medium
+
+  * use elasticsearch module internally
+  * Tested reduce/expand functions
+
+ -- Sebastien Dumetz <s.dumetz@holusion.com>  Wed, 12 Apr 2017 17:18:00 +0200
+
 carp (0.0.2) stable; urgency=medium
 
   * Add a route to handle batch count requests

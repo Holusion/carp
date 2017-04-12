@@ -2,9 +2,9 @@
   "name": "carp",
   "version": "0.0.1",
   "description": "log query tool for pixel.holusion.com",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node lib/index.js",
     "test": "mocha"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "elasticsearch": "^13.0.0-rc2",
     "express": "^4.15.2"
   },
   "devDependencies": {

@@ -1,3 +1,9 @@
+carp (0.0.4) stable; urgency=medium
+
+  * 4 hours RAM cache to prevent heavy load on elasticsearch
+
+ -- Sebastien Dumetz <s.dumetz@holusion.com>  Thu, 13 Apr 2017 10:31:57 +0200
+
 carp (0.0.3) stable; urgency=medium
 
   * use elasticsearch module internally

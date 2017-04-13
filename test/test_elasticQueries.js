@@ -47,4 +47,30 @@ describe("elasticQueries",function(){
       })
     })
   })
+  describe("iterate()",function(){
+    [
+      [
+        "from requests",
+        {holusion:["foo"],bar:["bar"]},
+        [["holusion","foo"],["bar","bar"]]
+      ],[
+        "from responses",
+        {holusion:{foo:128},bar:{bar:256}},
+        [["holusion","foo",128],["bar","bar",256]]
+      ],
+    ].forEach(function(f){
+      it(`${f[0]}`,function(done){
+        let count = 0;
+        queries.iterate(f[1],function(a,b,c){
+          expect(a).to.deep.equal(f[2][count][0]);
+          expect(b).to.deep.equal(f[2][count][1]);
+          if(f[2][count][2]) expect(c).to.deep.equal(f[2][count][2]);
+          count ++;
+          if(count == f[2].length){
+            done();
+          }
+        });
+      })
+    })
+  })
 })
